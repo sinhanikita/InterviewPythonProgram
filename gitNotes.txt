@@ -1,0 +1,57 @@
+project workflow automation:
+checkput feature branch
+master se bnayege
+
+set reposiory-git remote add  repositorylink or git clone <lik name>
+git pull origin (all data of repo)-origin means master branch-origin is repo name(it maycontain any number of branch. it contain all details.)
+git checkout -b <brncname> origin/master   or git branch <brncname>=====origin/master  upstream git branch <kjc> -u origin/master:git checkout -b nikit origin
+
+git status   ==>file name and change stus----add modified deltee
+git diff <filename>  or git diff
+git add <filename>
+git commit-ma:git commit -m first_commit test_file.c
+
+git push <origin> <brncname>====github pe gya
+git pull=gitfetch +git rebase:pull se code a jayega dikhne lagega changes.
+fetch se changes btayega.
+
+if conflict==same line is change by more than 1
+git rebase-i=>manually delete ker skte hai.
+git rebase apply
+
+git branch -m main newName
+
+
+
+for review:
+then create pull request
+then add reviwer
+done
+
+git -vv : change in file
+
+esc:wq  to close the bash file
+
+
+git log 
+git diff branchname1 brnchname2
+
+reponame=origin
+
+
+Ggit checkput <branchname>
+
+
+testing lyfcycle
+
+1322210
+
+https require username and pwd.
+ssh: we make system public key and give it to git.
+keygen -t -rsa
+
+
+
+First time commit
+ git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
