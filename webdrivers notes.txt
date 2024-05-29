@@ -1,0 +1,743 @@
+public class LaunchBrowser {
+
+ public static void main(String[] args) {
+// TODO Auto-generated method stub
+WebDriver driver;
+System.setProperty("webdriver.chrome.driver", "E:/cdacbatch_sel/chromedriver.exe");
+driver = new ChromeDriver();
+System.out.println("Opening instance of chrome browser");
+driver.get("http://www.google.com");
+System.out.println("My app url is opened");
+System.out.println("Title of page is="+driver.getTitle());
+driver.close();
+}
+
+============================
+A- 1
+Install IDE on FF/chrome.
+Open https://www.makemytrip.com/
+enter from and To data and peform search.
+
+
+A-2
+1) Open http://www.google.com on firefox and Edge
+2) Fetch and print the title
+3) Close/quit the driver.
+
+A-3
+1) Open http://www.makemytrip.com on chrome
+2) Fetch and print the title
+3) print H1
+
+A-4
+[11,22,33,44,44,55,67]- Sort array list in ascending order. (don't use any inbuilt function)
+
+String selhq = "If you want to create quick bug reproduction scripts, create scripts to aid in automation-aided exploratory testing, then you want to use Selenium IDE; a Chrome and Firefox add-on that will do simple record-and-playback of interactions with the browser."
+
+Print position of word "testing"
+
+==============================
+<dependencies>
+<dependency>
+<groupId>org.seleniumhq.selenium</groupId>
+<artifactId>selenium-server</artifactId>
+<version>3.141.59</version>
+</dependency>
+----------
+<dependency>
+<groupId>org.seleniumhq.selenium</groupId>
+<artifactId>selenium-java</artifactId>
+<version>3.141.59</version>
+</dependency> </dependencies>
+----------
+<dependency>
+<groupId>commons-io</groupId>
+<artifactId>commons-io</artifactId>
+<version>2.8.0</version>
+</dependency>
+===============================
+
+public static void main(String[] args) throws IOException {
+// Demo to take screenshot
+WebDriver driver;
+System.setProperty("webdriver.chrome.driver", "E:/cdacbatch_sel/chromedriver.exe");
+driver = new ChromeDriver();
+driver.get("https://www.google.com");
+TakesScreenshot testSrnshot = (TakesScreenshot) driver;
+File source = testSrnshot.getScreenshotAs(OutputType.FILE);
+File destination = new File("E:/cdacbatch_sel/screenshot/test1.png");
+FileUtils.copyFile(source, destination);
+
+}
+====================================
+
+java -jar selenium-server-standalone-3.141.59.jar -role hub
+----------
+Java -jar selenium-server-standalone-3.141.59.jar -role node -hub
+----------
+http://localhost:4444/grid/register -port 1414
+----------
+1) Please have jar and driver.exe on same dir on remote and hub
+2) java -jar selenium-server-standalone-3.141.59.jar -role hub (Machine one)
+3) java -Dwebdriver.chrome.driver="E:/cdacbatch_sel/chromedriver.exe" -jar selenium-server-standalone-3.141.59.jar -role node -hub http://172.27.133.48:4444/grid/register/ (- machine 2)
+4) Run your script
+
+======================================
+public static void main(String[] args) throws MalformedURLException {
+DesiredCapabilities capability = DesiredCapabilities.firefox();
+capability.setBrowserName("firefox");
+capability.setPlatform(Platform.WINDOWS);
+RemoteWebDriver driver=new RemoteWebDriver(new URL("http://172.27.133.48:4444/wd/hub"), capability);
+driver.navigate().to("https://www.google.com");
+}
+======================================
+2/6/2021
+----------
+public void myTest() {
+// TODO Auto-generated method stub
+System.setProperty("webdriver.gecko.driver", "E:/cdacbatch_sel/geckodriver.exe");
+ProfilesIni profile = new ProfilesIni();
+FirefoxProfile automationProfile = profile.getProfile("automationprofile");
+FirefoxOptions ffOption = new FirefoxOptions();
+ffOption.setProfile(automationProfile);
+driver = new FirefoxDriver(ffOption);
+driver.get("https://www.google.com");
+}
+======================================
+public void testCaseOne_ByID(){
+System.setProperty("webdriver.chrome.driver", "E:/cdacbatch_sel/chromedriver.exe");
+driver = new ChromeDriver();
+driver.get("https://www.python.org/");
+driver.manage().window().maximize();
+driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+driver.findElement(By.id("id-search-field")).click();
+driver.findElement(By.id("id-search-field")).sendKeys("Python");
+driver.close();
+}
+---------------------------------------
+@Test
+public void testCaseOne_ByClass(){
+System.setProperty("webdriver.chrome.driver", "E:/cdacbatch_sel/chromedriver.exe");
+driver = new ChromeDriver();
+driver.get("https://www.python.org/");
+driver.manage().window().maximize();
+driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+driver.findElement(By.className("search-field")).sendKeys("PyCharm Editor");
+//driver.close();
+}
+---------------------------------------
+driver.findElement(By.name("q")).sendKeys("Search with numpy");
+---------------------------------------
+List<WebElement> myLinks = driver.findElements(By.tagName("a"))
+======================================
+<dependency>
+<groupId>org.seleniumhq.selenium</groupId>
+<artifactId>selenium-server</artifactId>
+<version>3.141.59</version>
+</dependency>
+<dependency>
+<groupId>org.seleniumhq.selenium</groupId>
+<artifactId>selenium-java</artifactId>
+<version>3.141.59</version>
+</dependency>
+<dependency>
+<groupId>commons-io</groupId>
+<artifactId>commons-io</artifactId>
+<version>2.8.0</version>
+</dependency>
+======================================
+css=<HTML tag><#><Value of ID attribute>
+#password
+input#password
+
+css=<HTML tag><.><Value of Class attribute>
+.password
+input.password
+
+css=<HTML tag><[attribute=Value of attribute]>
+input[name="password"]
+
+Prefix -css=input#Passwd[name^=‘Pass’]
+suffix- css=input#Passwd[name$=‘wd’]
+Substring- css=input#Passwd[name*=‘wd’]
+
+for innner text
+css=<HTML tag><:><contains><(text)>
+======================================
+By.ByClassName
+By.ByCssSelector
+By.ById
+By.ByLinkText
+By.ByName
+By.ByPartialLinkText
+By.ByTagName
+By.ByXPath
+======================================
+Assignment 1
+Open https://www.python.org/Without using linktext/partial link text, click on “Python 3.9.5”
+---------------------------------------
+Assignment 2
+Write a script to print names of all Samsung mobile phones from following web page (http://www.gsmarena.com/samsung-phones-9.php) ?
+---------------------------------------
+Assignment No. 3
+Create Properties file with 2 sections Browser and URL as “www.cybgae.com”Open browser (read from properties file) using standalone webdriver 
+Open URL (read from properties file) siteClick on Careers Link. Verify Title as “Careers” and Maximize browser window.
+---------------------------------------
+Assignment No. 4
+Open http://www.google.com siteClick on “I'm Feeling Lucky” button.Click on “Doodles Archive” link.Change Language to “Hindi” using select.Click on First Image.
+---------------------------------------
+Assignment No.5
+Open http://www.cybage.com siteClick on “Worldwide Locations” button.Click on “Search” Button.Enter Search Criteria as “Automation”Click on Search icon in Search input box.
+Check for Number of search results shown  and click on first link.
+---------------------------------------
+Assignment No.6: 
+Open http://www.cybage.com/ sitePrint list of options available Under “PRODUCT ENGINEERING” in footer section of the page.Click on “Testing and QA” options.
+Go back to main page.
+Click on the “Search” icon on the header.Enter Search text as “Supply Chain Management” and click on Search icon.Print the number of result.
+---------------------------------------
+Assignment No.7:
+Open http://www.makemytrip.com/ siteClick on Hotels tab.Enter City name as “New Delhi and NCR, India”.
+Select Nights as “4”Select Adults count as “2”Click on Search HotelsFilter result with host language as “Punjabi”
+======================================
+4/06/2021
+üThe frame() method is overloaded with 3 types of arguments:
+üIndex
+üName
+üWebElement
+üAfter switching to the frame, the findElement() method will find the elements present inside the frame only.
+======================================
+//to get inside the frame
+driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[name='iframeResult']")));
+//to switch Parent frame from child
+driver.switchTo().parentFrame();
+//to outside of frame
+driver.switchTo().defaultContent();
+======================================
+A1
+Go to https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_file
+uplodate one txt file
+once upload, assert it is done.
+--------------------------------------
+A2
+Go to https://opensource-demo.orangehrmlive.com/index.php/auth/validateCredentials     or use Amazon
+Enter invalid username and password
+click login button
+As per the requirement.. expected validation message should be- Sorry !please try again.
+--------------------------------------
+A2
+Open https://www.cybage.com/
+Wait until architectural-services gets loaded
+--------------------------------------
+A3
+Open https://www.cybage.com/
+Click on ANALYST SPEAK
+Add fluent add to check whether page has loaded or not.
+add one assert to check page title contains word "Analyst Speak "
+--------------------------------------
+A4
+1. Open http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm2
+2. Click on Try it button.
+3. Click on Ok button.
+4. Verify Text “You pressed OK!”
+5. Click on Try it button
+6. Click on Cancel button.
+7. Verify Text “You pressed Cancel!”
+--------------------------------------
+A5
+Open https://accessibility.psu.edu/tables/
+Reach to table titled as "Color Names in Multiple Languages"
+fetch out "negro"
+--------------------------------------
+A6
+System.setProperty("webdriver.chrome.driver", "E:/cdacbatch_sel/chromedriver.exe");
+driver = new ChromeDriver();
+driver.get("https://accessibility.psu.edu/tables/");
+driver.findElement(By.cssSelector("table[summary='Color names for black, white, red, blue, green, yellow in multiple languages']"));
+int row = driver.findElements(By.cssSelector("table[summary='Color names for black, white, red, blue, green, yellow in multiple languages'] tbody tr")).size();
+int col = driver.findElements(By.cssSelector("table[summary='Color names for black, white, red, blue, green, yellow in multiple languages'] tbody tr th[scope='col']")).size();
+System.out.println(row);
+System.out.println(col);
+System.out.println(driver.findElement(By.cssSelector("table[summary='Color names for black, white, red, blue, green, yellow in multiple languages'] tbody tr td")).getText());
+======================================
+WebDriver driver;
+System.setProperty("webdriver.chrome.driver", "E:/cdacbatch_sel/chromedriver.exe");
+driver = new ChromeDriver();
+driver.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_file");
+//to get inside the frame
+driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[name='iframeResult']")));
+//to switch Parent frame from child
+//driver.switchTo().parentFrame();
+//to outside of frame
+//driver.switchTo().defaultContent();
+//
+List<WebElement> file = driver.findElements(By.cssSelector("#myfile"));
+List<WebElement> submitBtn = driver.findElements(By.cssSelector("input[type='submit']"));
+System.out.println(file.size());
+System.out.println(submitBtn.size());
+file.get(0).sendKeys("E:\\cdacbatch_sel\\uploadfile.txt");
+// Thread.sleep(5000);--> Try to avoid using it. we will see better wait method later in session
+submitBtn.get(0).click();
+//driver.close();
+String actual = "our cDac batch";
+String expected = "our cDac batch";
+Assert.assertEquals(actual, expected);
+======================================
+driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_alert");
+driver.findElement(By.cssSelector("button")).click();
+Thread.sleep(5000);
+driver.switchTo().alert().dismiss();
+======================================
+public void disableNotification(){
+ChromeOptions chrOp = new ChromeOptions();
+chrOp.addArguments("--disable-notifications");
+WebDriver driver;
+System.setProperty("webdriver.chrome.driver", "E:/cdacbatch_sel/chromedriver.exe");
+driver = new ChromeDriver(chrOp);
+driver.get("https://www.yatra.com/");
+
+}
+======================================
+
+public void handleDropdown() throws InterruptedException{
+WebDriver driver;
+System.setProperty("webdriver.chrome.driver", "E:/cdacbatch_sel/chromedriver.exe");
+driver = new ChromeDriver();
+driver.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select");
+driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[name='iframeResult']")));
+Select selCar= new Select(driver.findElement(By.cssSelector("#cars")));
+selCar.selectByValue("saab");
+List<WebElement> carList = selCar.getOptions();
+System.out.println(carList.get(0).getText());
+Thread.sleep(5000);
+}
+======================================
+/// shahista
+
+driver.findElement(By.cssSelector("input[class='gLFyf gsfi']")).sendKeys("Cy");
+        List<WebElement> list = driver.findElements(By.cssSelector(".aajZCb ul li"));
+       
+        System.out.println(list.size());
+        list.get(1).click();
+======================================
+07/06/2021
+======================================
+A1
+1) Open https://www.nopcommerce.com/en
+2) Assert the site is being loaded
+3) Go to footer and click on facebook icon
+4) Assert the FB page opens (also,Apply explicit wait here until any of element load)
+5) Print title of each window.
+6) Take text of any of available webelement of child window.
+======================================
+driver.get("<URL>");
+driver.findElement(By.linkText("<locator>")).click();
+Thread.sleep(5000);
+Set<String> myWinId = driver.getWindowHandles();
+Iterator<String> itr = myWinId.iterator();
+String parentWinId = itr.next();
+String childWinID = itr.next();
+//System.out.println("Parent window id="+parentWinId);
+//System.out.println("Child window id="+childWinID);
+driver.switchTo().window(parentWinId);
+System.out.println("Parent window="+driver.getTitle());
+driver.switchTo().window(childWinID);
+System.out.println("child window="+driver.getTitle());
+======================================
+dragTest.clickAndHold(src).moveToElement(tg).release().build().perform();
+======================================
+@Test  //mouse hover
+public void actionClass_Test() throws InterruptedException{
+System.setProperty("webdriver.chrome.driver", "E:/cdacbatch_sel/chromedriver.exe");
+driver = new ChromeDriver();
+driver.get("https://www.usa.gov");
+driver.manage().window().maximize();
+List<WebElement> lst = driver.findElements(By.cssSelector(".usa-accordion-button"));
+//System.out.println(myMenuSize);
+Actions menuAction = new Actions(driver);
+menuAction.moveToElement(lst.get(1)).build().perform();
+Thread.sleep(5000);
+}
+======================================
+A2
+1) Open https://www.fnp.com/gifts/birthday?promo=birthday_tab_dt_hm
+2) using action clase> perform mouseover on any of menu and see item gets opens
+or
+3) Go inside and click on any menu item.
+//Using Actions
+======================================
+WebDriver driver;
+System.setProperty("webdriver.chrome.driver", "E:/cdacbatch_sel/chromedriver.exe");
+driver = new ChromeDriver();
+driver.get("https://www.makemytrip.com/hotels/");
+driver.manage().window().maximize();
+driver.findElement(By.cssSelector("input#checkin")).click();
+Thread.sleep(5000);
+driver.findElement(By.cssSelector(".DayPicker-NavBar span[aria-label='Next Month']")).click();
+String monthyr = driver.findElement(By.cssSelector(".DayPicker-NavBar span[aria-label='Next Month']")).getText();
+String myJourneydate = "July2021";
+String captureDate = driver.findElement(By.cssSelector(".DayPicker-Caption div")).getText();
+System.out.println(captureDate);
+WebElement ele =driver.findElement(By.cssSelector(".DayPicker-Body .DayPicker-Week .DayPicker-Day[aria-label='Mon Jul 05 2021']"));
+ele.click();
+======================================
+A3
+use existing MMT assignment
+choose checkout date and perform your perform.
+======================================
+A4
+1) Open https://www.python.org/
+2) Click on Search text box
+3) Enter kw to search
+4) Click on Go by using JS executor
+======================================
+A5
+1) Open https://www.nopcommerce.com/en/register?returnUrl=/
+2) Don't enter anyvalue on mandatory field
+3) Ensure you are getting validation message.
+4) Resolve the issue and but don't register
+======================================
+08/06/2021
+======================================
+http://doc.sikuli.org/
+--------------------------------------
+<dependency>
+<groupId>com.sikulix</groupId>
+<artifactId>sikulixapi</artifactId>
+<version>1.1.0</version>
+</dependency>
+======================================
+Screen myWinScrn = new Screen();
+Pattern username = new Pattern("<username.png>");
+myWinScrn.type("<username>");
+Thread.sleep(5000);
+Pattern password = new Pattern("<password.png>");
+myWinScrn.click(password);
+myWinScrn.type("<password>");
+Thread.sleep(5000);
+Pattern signIn = new Pattern("E:\\cdacbatch_sel\\login.png");
+myWinScrn.click(signIn);
+System.out.println("done");
+======================================
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite1" >
+<test name="ModuleOne" >
+<classes>
+<class name="demotestng.DemoFirstNG" />
+</classes>
+</test>
+</suite>
+
+ 
+<classes>
+<class name="demotestng.DemoFirstNG" />
+<class name="demotestng.DemoSecondNG" />
+</classes>
+
+======================================
+@Test(enabled=false) //enabled=false-> To Ignore test case.
+@Test(priority=1)    //lower priority will be executed first
+======================================
+SoftAssert srt = new SoftAssert();
+@Test
+public void testcase_one(){
+System.out.println("Open ecommerce site");
+System.out.println("Select iPhone and add into cart");
+System.out.println("Go to Shopping card");
+System.out.println("validate you reach to shopping cart");
+srt.assertEquals(true, false);
+System.out.println("Add more one more iPhone");
+srt.assertAll();
+}
+======================================
+public class DemoSecondNG {
+@BeforeSuite
+public void beforeSuite(){
+System.out.println("BeforeSuite");
+}
+@AfterSuite
+public void afterSuite(){
+System.out.println("Aftersuite");
+}
+@BeforeTest
+public void beforeTest(){
+System.out.println("BeforeTest");
+}
+@AfterTest
+public void afterTest(){
+System.out.println("AfterTest");
+}
+@BeforeClass
+public void beforeClass(){
+System.out.println("BeforeClass");
+}
+@AfterClass
+public void afterClass(){
+System.out.println("AfterClass");
+}
+@BeforeMethod
+public void beforeMethod(){
+System.out.println("BeforeMethod");
+}
+@AfterMethod
+public void afterMethod(){
+System.out.println("AfterMethod");
+}
+@Test
+public void reg_TestCase_One(){
+System.out.println("My first registration First test case");
+}
+
+
+}
+======================================
+A1
+1) Create one class (Base class)
+2) Create one Test method with annotation.
+3) Run that testng suite and see result.
+
+A2
+1) Base class but don't have test method.(abstract)
+2) create class1 extend base class>create two test method
+3) Create class2 exten base class> create two test method
+4) Go testng xml
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite1" >
+<test name="Test1" >
+<classes>
+<class name="pkgname.class1" />
+</classes>
+</test>
+<test name="Test2" >
+<classes>
+<class name="pkgname.class1" />
+<class name="pkgname.class2" />
+</classes>
+</test>
+</suite>
+======================================
+bind listener to test clase- @Listeners(demotestng.ListenerNg.class)
+
+public class ListenerNg implements ITestListener {​​​
+
+ public void onTestStart(ITestResult result) {​​​
+// TODO Auto-generated method stub
+}​​​
+ public void onTestSuccess(ITestResult result) {​​​
+// TODO Auto-generated method stub
+}​​​
+ public void onTestFailure(ITestResult result) {​​​
+// TODO Auto-generated method stub
+System.out.println("my failed test case is="+result.getMethod().getMethodName());
+}​​​
+ public void onTestSkipped(ITestResult result) {​​​
+// TODO Auto-generated method stub
+}​​​
+ public void onTestFailedButWithinSuccessPercentage(ITestResult result) {​​​
+// TODO Auto-generated method stub
+}​​​
+ public void onStart(ITestContext context) {​​​
+// TODO Auto-generated method stub
+}​​​
+ public void onFinish(ITestContext context) {​​​
+// TODO Auto-generated method stub
+}​​​
+}​​​
+======================================
+A3
+1) Implement ITestListener. (Method to be implemented- onTestFailure())
+2) Bind with test class
+3) on Fail event, print the failed test case name and create screenshot with that test case name.
+======================================
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite1" >
+<listeners>
+<listener class-name="demotestng.ListenerNg" />
+</listeners>
+<test name="Registration" >
+<classes>
+<class name="demotestng.DemoFirstNG" />
+</classes>
+</test>
+</suite>
+======================================
+09/06/2021
+======================================
+public class ParameterTest {
+@Test
+@Parameters({"browserName"})
+public void paramenterTestDemo(String myBrwoserName){
+System.out.println("my opened brwoser="+myBrwoserName);
+}
+}
+======================================
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="myStgSuite">
+<!--<listeners> <listener class-name="demotestngpkg.ListenerClassNG" />
+</listeners> -->
+<test name="Registration">
+<parameter name="browserName" value="chrome" />
+<classes>
+<class name="demotestngpkg.ParameterTest" />
+</classes>
+</test>
+</suite>
+======================================
+A1
+Configure you testng xml with chrome/firefox browser using parament
+Bind it with your Test to open www.google.com in different brwoser provided from testng parameter.
+
+A2
+1) go to https://www.nopcommerce.com/en/register?returnUrl=/
+2) using Dataprovider -> enter fname, lname, email, confirmemail for two user (one by one)
+======================================
+public class DataProviderTest {
+@Test(dataProvider="SignDataProvider")
+public void signInTest(String userName, String password){
+System.out.println("my username is="+ userName);
+System.out.println("my password is="+ password);
+}
+
+@DataProvider(name="SignDataProvider")
+private Object[][] getSignInData() {
+// TODO Auto-generated method stub
+System.out.println("I am using Data provider");
+Object[][] data = {{"chinmay@gmail.com","pasword"},{"sudhir@yahoo.com","xyzTw"}};
+return data;
+}
+}
+======================================
+A3
+1) Open http://www.google.com    (before method)
+2) Search "Cybage"  (actual method)
+3) Ensure search result page opens (add assertion here to ensure it)   (actual method)
+4) Close the browser    (after method)
+Capture a time required to complete this flow.
+======================================
+10/06/2021
+======================================
+A1
+1) Go to https://www.nopcommerce.com/en/login
+2) Enter invalid user/password> Click on login btn
+3) Match error meessage(Assert it)
+
+A1.1
+1) Go to https://www.nopcommerce.com/en/login
+2) check "Welcome, Please Sign In!" is displayed
+
+A2
+1) Go to https://www.nopcommerce.com/en/login
+2) Click on Forgot password
+3) Get a text from that page and assert it
+======================================
+public class LoginPage {
+WebDriver driver;
+@FindBy(id = "Username")
+WebElement userName;
+//@FindBy(how = How., using = "Username") WebElement userName;
+@FindBy(id = "Password")
+WebElement password;
+@FindBy(css = "input[type='submit']")
+WebElement loginBtn;
+@FindBy(css = ".validation-summary-errors")
+WebElement errorText;
+/* By userName = By.id("Username");
+By password = By.id("Password");
+By loginBtn = By.cssSelector("input[type='submit']");
+By errorText = By.className("validation-summary-errors");
+public LoginPage(WebDriver d){
+this.driver=d;
+}
+public void setUserName(String uname){
+driver.findElement(userName).sendKeys(uname);
+}
+public void setPassword(String pwd){
+driver.findElement(password).sendKeys(pwd);
+}
+public void clickOnLoginButton(){
+driver.findElement(loginBtn).click();
+}
+public String getErrorText(){
+String myActualText = driver.findElement(errorText).getText();
+return myActualText;
+}
+*/
+public LoginPage(WebDriver d){
+this.driver=d;
+PageFactory.initElements(d, this);
+}
+public void setUserName(String uname){
+userName.sendKeys(uname);
+}
+public void setPassword(String pwd){
+password.sendKeys(pwd);
+}
+public void clickOnLoginButton(){
+loginBtn.click();
+}
+public String getErrorText(){
+String myActualText = errorText.getText();
+return myActualText;
+}
+
+}
+======================================
+Assignment No.3: (POM only)
+Open Chrome Driver and access site www.cybage.comMake sure to use implicit wait of 60 seconds. Click on any link,  Check time required to load by printing time on console.Comment on your observation based on program output.
+Assignment No.4:(POM only)
+Open http://demo.nopcommerce.com/ Click on Electronics – Cell phones.Click on Grid optionClick on ADD TO CART option for lowest price.(Hint: use find Elements to get lowest price)Click on Shopping Cart option on top.Verify Shopping Cart contains item selected.Click to select Remove checkbox and click on “Update Shopping cart” button.Verify message as “Your Shopping Cart is empty!”
+Assignment No.5:(POM only)
+Open http://demo.nopcommerce.com/ Click on Electronics – Cell phones.Click on Electronics – Camera & photoClick on ADD TO CART option for highest price.Click on Shopping Cart – Go to Cart button.Select Country as “India”.Click on “CHECKOUT” button.Verify for error message” Please accept the terms of service before the next step.”. Close message.Click on read link under checkbox “I agree with the terms of service and I adhere to them unconditionally(read)”Click to select checkbox “I agree with the terms”.Click on CHECKOUT button.Verify message “Welcome, Please Sign In!”
+======================================
+A6 (POM only)
+1) Go to https://www.nopcommerce.com/en/register?returnUrl=%2Fen%2Flogin
+2) Don't fill any mandatory field and submit
+3) Assert for validation message
+4) Assert when email and confirm email is not matching
+5) Asssert when email is valid(Email structure like a @ gmail. com)
+6) Fill all details> register
+======================================
+11/06/2021
+======================================
+private static Logger logger = LogManager.getLogger(BasePageLib.class);
+
+look for downloaded file
+======================================
+<dependency>
+<groupId>org.apache.logging.log4j</groupId>
+<artifactId>log4j-api</artifactId>
+<version>2.14.1</version>
+</dependency>
+======================================
+@Test
+public void headlessBrowser(){
+WebDriver driver;
+System.setProperty("webdriver.chrome.driver", "E:/cdacbatch_sel/chromedriver.exe");
+ChromeOptions op = new ChromeOptions();
+op.setHeadless(true);
+driver = new ChromeDriver(op);
+driver.get("https://www.nopcommerce.com/en/login");
+System.out.println("Title="+driver.getTitle());
+}
+======================================
+Bhargav-1
+Chinmay-5
+Nishad- 3
+Vinay - 5
+Shahista
+Abhishek T- 1
+Aniket - 2
+Sudhir- 1
+Neha K-1
+Nisha N-1
+Shubhada C- 4
+Nisha+Shailesh+sudhir+Aniket+Nidhi+Neha=1
+Nishad+Shahista+Piyush Y= 1
+Sudhir+abhishek- 1
+Vinay+chinmay+sudhir- 1
+Vinay+shubhada+Sudhir= 1
+======================================
+
+======================================
+
+======================================
